@@ -24,5 +24,7 @@ public class Factorial{
         testFactorial(3,6);
         testFactorial(4,24);
         testFactorial(5,120);
+        testFactorial(6,720);
+        testFactorial(7,5040);
     }
 }
