@@ -12,6 +12,9 @@ public class Ceramics extends PApplet{
         background(255);
         design1.starting();
         design1.update();
+        design1.update();
+        
+        System.out.println(design1.ellipseDist(200,400,0,0));
         
     }
      public void mouseDragged(){
