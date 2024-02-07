@@ -2,14 +2,16 @@ import processing.core.*;
 //import java.util.*;
 
 public class Block{
-    float x,y,z,w,h,d;
+    float x,y,z;
+    int number;
     PApplet p;
     
-    public Block(float xIn, float yIn, float zIn, PApplet p){
+    public Block(float xIn, float yIn, float zIn, int numberIn, PApplet p){ //
         this.y=yIn;
         this.x=xIn;
         this.z=zIn;
         this.p=p;
+        this.number=numberIn;
     }
     public void display(){
         p.pushMatrix();
@@ -17,6 +19,13 @@ public class Block{
         p.translate(x,y,z);
         p.box(75);
         p.popMatrix();
+    }
+    
+    public void colors(){
+            if (number == 2)
+                p.fill (155);
+            else if (number == 4)
+                p.fill (0);
     }
     
     public float getX(){
@@ -29,6 +38,15 @@ public class Block{
     
     public float getZ(){
         return z;
+    }
+    
+    public int getNumber(){
+        return number;
+    } 
+
+    public int changeNumber(){
+        number *= 2;
+        return number;
     }
     
     public void setX(float value, boolean upOrDown){

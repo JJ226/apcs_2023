@@ -1,7 +1,6 @@
 import processing.core.*;
-import java.util.*;
 import peasy.*;
-
+import java.util.*;
 
 //for x this is the base: 350,175,525,700,350,175,525,700,350,175,525,700,350,175,525,700
 public class Jane2048 extends PApplet{
@@ -21,10 +20,13 @@ public class Jane2048 extends PApplet{
     public void setup(){
         blockList = new ArrayList<Block>();
         cam = new PeasyCam(this,400);
+        addBlock();
+        addBlock();
     }
     public void draw(){
         background(255);
         noFill();
+        drawAxes();
         //drawBoxes();
         for (int column=0;column<4;column++){
             for (int row=0;row<4;row++){
@@ -38,21 +40,28 @@ public class Jane2048 extends PApplet{
                 }
             }
         }
-        for (Block x : blockList)
+        for (Block x : blockList) {
             x.display();
-        
+            x.colors();
+        }
     }
-     public void keyPressed(){
+    public void addBlock(){
         int randoX = (int) (Math.random() * 4);
         int randoY = (int) (Math.random() * 4);
         int randoZ = (int) (Math.random() * 4);
-        Block addingBlock = new Block(0 + randoX*80, 0 + randoY*80, -500 + randoZ*80, this);
+        Block addingBlock = new Block(0 + randoX*80, 0 + randoY*80, -500 + randoZ*80, 2, this);
         
         blockList.add(addingBlock); 
-         //you can use these for moving blocks around
+    }
+    
+    public void changeNumber(){
+        System.out.println(blockList.get(0).getNumber());
+        blockList.get(0).changeNumber();
+        System.out.println(blockList.get(0).getNumber());
+    }
+    
+    public void keyPressed(){
             if(keyCode == UP || key == 'w'){
-                
-                if (randoY != 0){
                     for (Block y : blockList){
                         y.getY();
                         if (y.getY() == 0) {}
@@ -62,10 +71,8 @@ public class Jane2048 extends PApplet{
                     }
                     
                 }
-                }
             }
         if(keyCode == DOWN || key == 's'){
-            if (randoY != 0){
                     for (Block y : blockList){
                         y.getY();
                         if (y.getY() == 3*80) {}
@@ -74,10 +81,8 @@ public class Jane2048 extends PApplet{
                             y.setY(80,true);
                     }
                     }
-                }
         }
         if(keyCode == LEFT || key == 'a'){
-            if (randoX != 0){
                     for (Block x : blockList){
                         x.getX();
                         if (x.getX() == 0) {}
@@ -87,10 +92,8 @@ public class Jane2048 extends PApplet{
                     }
                         
                     }
-                }
         }
         if(keyCode == RIGHT || key == 'd'){
-             if (randoX != 0){
                     for (Block x : blockList){
                         x.getX();
                         if (x.getX() == 3*80) {}
@@ -100,26 +103,44 @@ public class Jane2048 extends PApplet{
                     }
                         
                     }
-                }
         }
          
-        /* if(key == 'q'){
-             if (randoZ != -520){
-                    for (Block x : blockList){
-                        x.getX();
-                        if (x.getX() == 3*80) {}
+         if(key == 'q'){
+                    for (Block z : blockList){
+                        z.getZ();
+                        if (z.getZ() == -500) {}
                         
                         else {
-                            x.setX(80,true);
+                            z.setZ(80,false);
                     }
                         
                     }
-                }
         }
-        */
+         
+         if(key == 'e'){
+                    for (Block z : blockList){
+                        z.getZ();
+                        if (z.getZ() == -500 + 3*80) {}
+                        
+                        else {
+                            z.setZ(80,true);
+                    }
+                        
+                    }
+        }
+        addBlock();
         
-     }
+    }
+void drawAxes(){
+  stroke(255,0,0);
+  line(0,0,400,0);
+  stroke(0,255,0);
+  line(0,0,0,400);
+  stroke(0,0,255);
+  line(0,0,0,0,0,400);
 }
+}
+
 
 
     

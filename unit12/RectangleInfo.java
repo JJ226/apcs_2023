@@ -4,7 +4,7 @@ public class RectangleInfo {
         
         System.out.println("Average perimeter: " + averagePerimeter(rectangles));
         
-        System.out.println("The rectangle with the largest perimeter is: " + largestArea(rectangles));
+        System.out.println("The rectangle with the largest area is: " + largestArea(rectangles).getName());
     }
     
     public static double averagePerimeter (Rectangle[][] rectangles){
@@ -17,16 +17,16 @@ public class RectangleInfo {
         return perimeters/rectangles.length;
     }
     
-    public static String largestArea (Rectangle[][] rectangles){
+    public static Rectangle largestArea (Rectangle[][] rectangles){
         double greatestAreaCurrent = rectangles[0][0].area();
-        String nameOfBiggest = rectangles[0][0].getName();
+        Rectangle rectangle = rectangles[0][0];
         for (Rectangle[] x : rectangles){
             for (Rectangle y: x){
                 if (y.area()>greatestAreaCurrent)
                     greatestAreaCurrent = y.area();
-                    nameOfBiggest = y.getName();
+                    rectangle = y;
             }
         }
-        return nameOfBiggest;
+        return rectangle;
     }
 }
