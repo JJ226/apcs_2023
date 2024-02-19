@@ -15,17 +15,28 @@ public class Block{
     }
     public void display(){
         p.pushMatrix();
-        p.fill(252, 56, 56);
         p.translate(x,y,z);
+        colors();
         p.box(75);
         p.popMatrix();
     }
     
     public void colors(){
-            if (number == 2)
-                p.fill (155);
-            else if (number == 4)
-                p.fill (0);
+        if (number == 2) 
+            p.fill(220, 224, 223); // Grey
+        else if (number == 4) 
+            p.fill(255, 36, 36); // red
+        else if (number == 8) 
+            p.fill(255, 135, 36); //orange
+        else if (number == 16) 
+            p.fill(255, 207, 36); //yellow
+        else if (number == 32) 
+            p.fill(82, 227, 66); //green
+        else if (number == 64) 
+            p.fill(82, 227, 66); //blue
+        else 
+            p.fill(255);
+    
     }
     
     public float getX(){

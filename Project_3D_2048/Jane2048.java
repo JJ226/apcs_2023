@@ -40,9 +40,9 @@ public class Jane2048 extends PApplet{
                 }
             }
         }
+        
         for (Block x : blockList) {
             x.display();
-            x.colors();
         }
     }
     public void addBlock(){
