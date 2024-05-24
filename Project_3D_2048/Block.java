@@ -3,15 +3,19 @@ import processing.core.*;
 
 public class Block{
     float x,y,z;
+    int i,j,k;
     int number;
     PApplet p;
     
-    public Block(float xIn, float yIn, float zIn, int numberIn, PApplet p){ //
+    public Block(float xIn, float yIn, float zIn, int numberIn, int i, int j, int k, PApplet p){ //
         this.y=yIn;
         this.x=xIn;
         this.z=zIn;
         this.p=p;
         this.number=numberIn;
+        this.i=i;
+        this.j=j;
+        this.k=k;
     }
     public void display(){
         p.pushMatrix();
@@ -34,8 +38,8 @@ public class Block{
             p.fill(82, 227, 66); //green
         else if (number == 64) 
             p.fill(82, 227, 66); //blue
-        else 
-            p.fill(255);
+      //  else 
+        //    p.fill(255);
     
     }
     
@@ -54,7 +58,19 @@ public class Block{
     public int getNumber(){
         return number;
     } 
+    
+    public int getI(){
+        return i;
+    } 
+    
+    public int getJ(){
+        return j;
+    } 
 
+    public int getK(){
+        return k;
+    } 
+    
     public int changeNumber(){
         number *= 2;
         return number;
@@ -80,21 +96,4 @@ public class Block{
         else if (upOrDown == false)
             z -= value;
     }
-    /*  // all of this can be used for your moving of boxes i think
-    public void updateX(){
-        p.pushMatrix();
-        
-        p.popMatrix();
-    }
-    public void updateY(){
-        p.pushMatrix();
-        
-        p.popMatrix();
-    }
-    public void updateZ(){
-        p.pushMatrix();
-        
-        p.popMatrix();
-    }
-    */
 }
