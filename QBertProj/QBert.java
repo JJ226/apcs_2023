@@ -1,8 +1,8 @@
 
 import processing.core.*;
 import java.util.*;
-import processing.sound.*;
-import gifAnimation.*;
+//import processing.sound.*;
+//import gifAnimation.*;
 
 public class QBert extends PApplet{
     
@@ -22,8 +22,8 @@ public class QBert extends PApplet{
     static ArrayList<YellowBlock> yellowBlocks = new ArrayList<YellowBlock>();
     private Snake s1;
     private BallEnemy b1; 
-    SoundFile qJump;
-    private Gif start;
+   // SoundFile qJump;
+    //private Gif start;
     
     public static void main(String[] args){
         PApplet.main("QBert");
@@ -50,8 +50,8 @@ public class QBert extends PApplet{
         bertR.resize(333,188); //666,375
         imageMode(CENTER);
         image(bertL, width/2, 45); //570
-        qJump = new SoundFile(this, "Jump.mp3");
-        start = new Gif(this, "Start.gif");
+        //qJump = new SoundFile(this, "Jump.mp3");
+      //  start = new Gif(this, "Start.gif");
 
     }
     
@@ -138,7 +138,7 @@ public class QBert extends PApplet{
             bertX -= 60;
             bertY -= 100;
             r = false;
-            qJump.play();
+          //  qJump.play();
             YellowBlock newYellow = new YellowBlock(bertX-12,bertY+81,this);
            /* for (YellowBlock currentYellow : yellowBlocks){
                 if (bertX-12!=currentYellow.getX() && bertY+82 != currentYellow.getY())
@@ -152,7 +152,7 @@ public class QBert extends PApplet{
             bertX += 60;
             bertY +=100;
             r = true;
-            qJump.play();
+      //      qJump.play();
             YellowBlock newYellow = new YellowBlock(bertX-12,bertY+81,this);
            /*for (YellowBlock currentYellow : yellowBlocks){
                 if (bertX-12!=currentYellow.getX() && bertY+82 != currentYellow.getY())
@@ -165,7 +165,7 @@ public class QBert extends PApplet{
             bertY -= 100;
             bertX +=60;
             r = true;
-            qJump.play();
+     //       qJump.play();
             YellowBlock newYellow = new YellowBlock(bertX-12,bertY+81,this);
            /* for (YellowBlock currentYellow : yellowBlocks){
                 if (bertX-12!=currentYellow.getX() && bertY+82 != currentYellow.getY())
@@ -178,7 +178,7 @@ public class QBert extends PApplet{
             bertY += 100;
             bertX -= 60;
             r = false;
-            qJump.play();
+       //     qJump.play();
             YellowBlock newYellow = new YellowBlock(bertX-12,bertY+82,this);
            /* for (YellowBlock currentYellow : yellowBlocks){
                 if (bertX-12!=currentYellow.getX() && bertY+82 != currentYellow.getY())
@@ -207,8 +207,8 @@ public class QBert extends PApplet{
     
     public void startScreen(){
         background(0);
-        image(start, width/2, height/2 - 200);
-        start.play();
+    //    image(start, width/2, height/2 - 200);
+     //   start.play();
     }
     
     public void collision(){
